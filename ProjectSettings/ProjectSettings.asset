@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: fcf2db9f414498a44959653fec217590
+  productGUID: 7e501063b0476314c949a3cdef76c25f
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: YandexFirstGame
+  productName: onemoreagain
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -625,14 +625,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: YandexFirstGame
+  metroPackageName: onemoreagain
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: YandexFirstGame
+  metroApplicationDescription: onemoreagain
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -700,10 +700,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 184cd96f-c73e-4b00-8ce8-1898b833cc7b
+  cloudProjectId: c114db62-67e7-4f7e-b085-7dacc1812a7c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: YandexFirstGame
+  projectName: onemoreagain
   organizationId: rowegames4work
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
