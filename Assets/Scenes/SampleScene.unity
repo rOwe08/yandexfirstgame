@@ -209,7 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3189fa7975069eb4d8d5346f3b4edb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: []
   countOfGuesses: 0
   limitOfGuesses: 0
   guessManager: {fileID: 728392013}
@@ -352,8 +351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 409808599}
-  word: 
+  guessedWord: 
   countOfGuessedLetters: 0
+  words: []
 --- !u!4 &728392014
 Transform:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.5561884, b: 0.5561884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -600,8 +600,8 @@ Transform:
   m_GameObject: {fileID: 1627742712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0077, y: 0.0158, z: 0}
+  m_LocalScale: {x: 17.726389, y: 9.908433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

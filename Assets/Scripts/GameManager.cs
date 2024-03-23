@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public List<string> words;
     public int countOfGuesses;
     public int limitOfGuesses;
     public GuessManager guessManager;
@@ -33,22 +30,11 @@ public class GameManager : MonoBehaviour
 
     public void StartPlay()
     {
-        if (words is null || words.Count == 0)
-        {
-            words = new List<string>
-            {
-                "а",
-                "б",
-                "в"
-            };
-        }
-
         windowFinal.SetActive(false);
 
         countOfGuesses = 0;
-        guessManager.word = guessManager.ChooseOneWord();
-        guessManager.countOfGuessedLetters = 0;
 
+        guessManager.StartPlay();
         buttonGenerator.SetActiveButtons(true);
     }
 
