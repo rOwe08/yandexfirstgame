@@ -16,12 +16,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         limitOfGuesses = 10;
-        words = new List<string>
-        {
-            "а",
-            "б",
-            "в"
-        };
         buttonGenerator.GenerateButtons();
         StartPlay();
     }
@@ -39,6 +33,16 @@ public class GameManager : MonoBehaviour
 
     public void StartPlay()
     {
+        if (words is null || words.Count == 0)
+        {
+            words = new List<string>
+            {
+                "а",
+                "б",
+                "в"
+            };
+        }
+
         windowFinal.SetActive(false);
 
         countOfGuesses = 0;

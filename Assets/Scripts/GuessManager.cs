@@ -22,7 +22,12 @@ public class GuessManager : MonoBehaviour
 
     public string ChooseOneWord()
     {
-        return gameManager.words[Random.Range(0, gameManager.words.Count - 1)];
+        int wordIndex = Random.Range(0, gameManager.words.Count - 1);
+        string word = gameManager.words[wordIndex];
+
+        gameManager.words.RemoveAt(wordIndex);
+
+        return word;
     }
 
     public void Guess(char letter)
