@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +8,8 @@ public class ButtonGenerator : MonoBehaviour
     public GameObject buttonPrefab;
     private int numberOfColumns = 11;
     private int numberOfRows = 3;
-    private float offsetXBetweenButtons = 16f;
-    private float offsetYBetweenButtons = 16f;
+    private float offsetXBetweenButtons;
+    private float offsetYBetweenButtons;
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +22,36 @@ public class ButtonGenerator : MonoBehaviour
         float buttonWidth = buttonPrefab.GetComponent<RectTransform>().rect.width;
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
 
-        float offsetX = (numberOfColumns * buttonWidth) / 2f;
-        float offsetY = (numberOfRows * buttonHeight);
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        float totalWidthButtons = numberOfColumns * buttonWidth;
+
+        float totalWidthForOffset = screenWidth - totalWidthButtons;
+
+        offsetXBetweenButtons = totalWidthForOffset / (numberOfColumns);
+        offsetYBetweenButtons = buttonHeight / 2;
+
+        float offsetX = screenWidth / 2f;
+        float offsetY = screenHeight / 2f;
         float yForRow = 0;
 
         for (int row = 0; row < numberOfRows; row++)
         {
             float xForRow = 0;
+            if(row == 0)
+            {
+                yForRow += offsetYBetweenButtons * 2;
+            }
+            else
+            {
+                yForRow += offsetYBetweenButtons;
+            }
 
             for (int col = 0; col < numberOfColumns; col++)
             {
+                xForRow += offsetXBetweenButtons;
+
                 GameObject newButton = Instantiate(buttonPrefab, transform);
 
                 float x = col * buttonWidth - offsetX;
@@ -44,25 +62,18 @@ public class ButtonGenerator : MonoBehaviour
                 char letter = GetRussianLetter(row, col);
 
                 newButton.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
-
-                xForRow += offsetXBetweenButtons;
             }
-
-            yForRow += offsetYBetweenButtons;
         }
     }
 
     char GetRussianLetter(int row, int col)
     {
         char[,] russianLetters = {
-            {'à', 'á', 'â', 'ã', 'ä', 'å', '¸', 'æ', 'ç', 'è', 'é'},
+            {'õ', 'ö', '÷', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'þ', 'ÿ'},
             {'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô'},
-            {'õ', 'ö', '÷', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'þ', 'ÿ'}
+            {'à', 'á', 'â', 'ã', 'ä', 'å', '¸', 'æ', 'ç', 'è', 'é'}
         };
 
-        int rowClamped = Mathf.Clamp(row, 0, russianLetters.GetLength(0) - 1);
-        int colClamped = Mathf.Clamp(col, 0, russianLetters.GetLength(1) - 1);
-
-        return russianLetters[rowClamped, colClamped];
+        return russianLetters[row, col];
     }
 }
