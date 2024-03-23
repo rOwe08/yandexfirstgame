@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,14 +11,8 @@ public class ButtonGenerator : MonoBehaviour
     private int numberOfRows = 3;
     private float offsetXBetweenButtons;
     private float offsetYBetweenButtons;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GenerateButtons();
-    }
-
-    void GenerateButtons()
+    List<GameObject> letterButtons = new List<GameObject>();
+    public void GenerateButtons()
     {
         float buttonWidth = buttonPrefab.GetComponent<RectTransform>().rect.width;
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
@@ -54,6 +49,8 @@ public class ButtonGenerator : MonoBehaviour
 
                 GameObject newButton = Instantiate(buttonPrefab, transform);
 
+                letterButtons.Add(newButton);
+
                 float x = col * buttonWidth - offsetX;
                 float y = row * buttonHeight - offsetY;
 
@@ -62,6 +59,7 @@ public class ButtonGenerator : MonoBehaviour
                 char letter = GetRussianLetter(row, col);
 
                 newButton.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
+                newButton.GetComponent<LetterButton>().letter = letter;
             }
         }
     }
@@ -75,5 +73,13 @@ public class ButtonGenerator : MonoBehaviour
         };
 
         return russianLetters[row, col];
+    }
+
+    public void SetActiveButtons(bool IsActive)
+    {
+        foreach(GameObject button in letterButtons)
+        {
+            button.SetActive(IsActive);
+        }
     }
 }
