@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
         limitOfGuesses = 10;
         words = new List<string>
         {
-            "а",
-            "б",
-            "в"
+            "Р°",
+            "Р±",
+            "РІ"
         };
         buttonGenerator.GenerateButtons();
         StartPlay();
@@ -59,11 +59,11 @@ public class GameManager : MonoBehaviour
         {
             if (IsWin)
             {
-                textComponent.text = "Победа!";
+                textComponent.text = "РџРѕР±РµРґР°!";
             }
             else
             {
-                textComponent.text = "Проигрыш!";
+                textComponent.text = "РџРѕСЂР°Р¶РµРЅРёРµ!";
             }
         }
         else

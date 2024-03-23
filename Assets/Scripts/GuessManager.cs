@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
@@ -36,8 +36,6 @@ public class GuessManager : MonoBehaviour
             {
                 countOfGuessedLetters++;
                 IsGuessed = true;
-
-                // появление буквы в тексте
             }
         }
 
@@ -46,7 +44,7 @@ public class GuessManager : MonoBehaviour
             Debug.Log("Incorrect letter!");
             if(gameManager.countOfGuesses > gameManager.limitOfGuesses)
             {
-                // window открыть
+                // window
                 gameManager.OpenFinalWindow(false);
             }
         }

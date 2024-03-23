@@ -16,7 +16,7 @@ public class LetterButton : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         if (gameManager == null)
         {
-            Debug.LogError("GameManager не найден в сцене!");
+            Debug.LogError("GameManager is not initialized");
         }
     }
 
