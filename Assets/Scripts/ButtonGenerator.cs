@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -67,9 +67,9 @@ public class ButtonGenerator : MonoBehaviour
     char GetRussianLetter(int row, int col)
     {
         char[,] russianLetters = {
-            {'õ', 'ö', '÷', 'ø', 'ù', 'ú', 'û', 'ü', 'ı', 'ş', 'ÿ'},
-            {'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ğ', 'ñ', 'ò', 'ó', 'ô'},
-            {'à', 'á', 'â', 'ã', 'ä', 'å', '¸', 'æ', 'ç', 'è', 'é'}
+            {'Ñ…', 'Ñ†', 'Ñ‡', 'Ñˆ', 'Ñ‰', 'ÑŠ', 'Ñ‹', 'ÑŒ', 'Ñ', 'Ñ', 'Ñ'},
+            {'Ğº', 'Ğ»', 'Ğ¼', 'Ğ½', 'Ğ¾', 'Ğ¿', 'Ñ€', 'Ñ', 'Ñ‚', 'Ñƒ', 'Ñ„'},
+            {'Ğ°', 'Ğ±', 'Ğ²', 'Ğ³', 'Ğ´', 'Ğµ', 'Ñ‘', 'Ğ¶', 'Ğ·', 'Ğ¸', 'Ğ¹'}
         };
 
         return russianLetters[row, col];
