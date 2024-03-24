@@ -55,12 +55,12 @@ public class GameManager : MonoBehaviour
 
             if (IsWin)
             {
-                textResultComponent.text = "Победа!";
+                textResultComponent.text = "слово угадано!";
                 score += guessManager.guessedWord.Length;
             }
             else
             {
-                textResultComponent.text = "Поражение!";
+                textResultComponent.text = "слово не угадано!";
                 //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
                 hp--;
             }
