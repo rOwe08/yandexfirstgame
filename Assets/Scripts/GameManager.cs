@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
         TextMeshProUGUI textResultComponent = windowFinal.transform.Find("ResultText").GetComponent<TextMeshProUGUI>();
         Button buttonFinal = windowFinal.transform.Find("ButtonFinal").GetComponent<Button>();
+        Button yandexButton = windowFinal.transform.Find("YandexButton").GetComponent<Button>();
 
         if (textResultComponent != null)
         {
@@ -59,12 +60,15 @@ public class GameManager : MonoBehaviour
 
             if (IsWin)
             {
-                textResultComponent.text = "слово угадано!";
                 score += guessManager.guessedWord.Length;
 
+                textResultComponent.text = "слово угадано!";
                 buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
                 buttonFinal.onClick.RemoveAllListeners();
                 buttonFinal.GetComponent<Button>().onClick.AddListener(NextWordButtonClick);
+
+                yandexButton.onClick.RemoveAllListeners();
+                yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForX2);
             }
             else
             {
@@ -76,6 +80,9 @@ public class GameManager : MonoBehaviour
                     buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
                     buttonFinal.onClick.RemoveAllListeners();
                     buttonFinal.GetComponent<Button>().onClick.AddListener(NextWordButtonClick);
+
+                    yandexButton.onClick.RemoveAllListeners();
+                    yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForHP);
                 }
                 else
                 {
@@ -83,6 +90,9 @@ public class GameManager : MonoBehaviour
                     buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "начать заново";
                     buttonFinal.onClick.RemoveAllListeners();
                     buttonFinal.GetComponent<Button>().onClick.AddListener(PlayAgainButtonClick);
+
+                    yandexButton.onClick.RemoveAllListeners();
+                    yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForHP);
                 }
 
             }
@@ -98,10 +108,30 @@ public class GameManager : MonoBehaviour
         StartPlay();
     }
 
+    public void WatchAdForHP()
+    {
+        /// TODO:
+        Debug.Log("+1 HP");
+        hp++;
+        StartPlay();
+    }
+
+    public void WatchAdForX2()
+    {
+        /// TODO:
+        Debug.Log("X2 score");
+
+        score += guessManager.guessedWord.Length;
+
+        StartPlay();
+    }
+
     public void PlayAgainButtonClick()
     {
         /// TODO:
-        Debug.Log("U gei watch the ad");
+        Debug.Log("restart game");
+
+        // restart game
     }
 }
 
