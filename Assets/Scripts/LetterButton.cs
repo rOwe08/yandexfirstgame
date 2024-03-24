@@ -34,6 +34,9 @@ public class LetterButton : MonoBehaviour
         sfxManager.PlaySound("clickLetterButtonSound");
         guessManager.SelectLetter(letter);
 
-        this.gameObject.SetActive(false);
+        transform.DOScale(0f, 1f).OnComplete(() =>
+        {
+            this.gameObject.SetActive(false);
+        });
     }
 }
