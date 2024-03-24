@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using TMPro.Examples;
 using UnityEngine;
 
 public class GuessManager : MonoBehaviour
@@ -25,6 +27,7 @@ public class GuessManager : MonoBehaviour
         {
             words = new List<string>
             {
+                "человек паук",
                "майнкрафт", "барби", "футбол", "робот", "динозавр", "космос", "спорткар", "супергерой", "елса", "олаф",
                 "принцесса", "пират", "смартфон", "планшет", "наушники", "скейтборд", "ролики", "лего", "бэтмен", "человекпаук",
                 "йогурт", "кексы", "смузи", "трансформер", "пиксель", "эмодзи", "хэштег", "селфи", "ютуб", "блогер",
@@ -48,11 +51,20 @@ public class GuessManager : MonoBehaviour
 
     public void SelectLetter(char letter)
     {
+        int nonSpaceCharIndex = -1;
+
         for (int i = 0; i < guessedWord.Length; i++)
         {
+            if (guessedWord[i] == ' ')
+            {
+                continue;
+            }
+
+            nonSpaceCharIndex++;
+
             if (guessedWord[i] == letter)
             {
-                wordPlaceholderGenerator.wordLetters[i].transform.GetChild(0).gameObject.SetActive(true);
+                wordPlaceholderGenerator.wordLetters[nonSpaceCharIndex].transform.GetChild(0).gameObject.SetActive(true);
             }
         }
 
@@ -85,7 +97,7 @@ public class GuessManager : MonoBehaviour
         else
         {
             Debug.Log("Correct letter!");
-            if (countOfGuessedLetters == guessedWord.Length)
+            if (countOfGuessedLetters == guessedWord.Length - guessedWord.Count(c => c == ' '))
             {
                 Debug.Log("U win!");
                 gameManager.OpenFinalWindow(true);

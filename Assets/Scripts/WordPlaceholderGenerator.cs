@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,9 +16,9 @@ public class WordPlaceholderGenerator : MonoBehaviour
     {
         float screenWidth = Screen.width;
 
-        string quessedWord = guessManager.guessedWord;
+        string guessedWord = guessManager.guessedWord;
         float leftScreenSide = -(screenWidth / 2f);
-        int numOfLetters = quessedWord.Length;
+        int numOfLetters = guessedWord.Length;
 
         float wordLetterWidth = wordLetterPanelPrefab.GetComponent<RectTransform>().rect.width;
         float totalWidthWordLetter = numOfLetters * wordLetterWidth;
@@ -33,14 +33,18 @@ public class WordPlaceholderGenerator : MonoBehaviour
 
         for (int i = 0; i < numOfLetters; i++)
         {
-            GameObject newWordLetter = Instantiate(wordLetterPanelPrefab, transform);
+            if (guessedWord[i] != ' ')
+            {
+                GameObject newWordLetter = Instantiate(wordLetterPanelPrefab, transform);
 
-            wordLetters.Add(newWordLetter);
+                wordLetters.Add(newWordLetter);
 
-            newWordLetter.transform.localPosition = new Vector3(x, (wordLetterWidth / 2), 0f);
+                newWordLetter.transform.localPosition = new Vector3(x, (wordLetterWidth / 2), 0f);
 
-            newWordLetter.GetComponentInChildren<TextMeshProUGUI>().text = quessedWord[i].ToString();
-            newWordLetter.transform.GetChild(0).gameObject.SetActive(false);
+                newWordLetter.GetComponentInChildren<TextMeshProUGUI>().text = guessedWord[i].ToString();
+                newWordLetter.transform.GetChild(0).gameObject.SetActive(false);
+
+            }
 
             x += offsetXBetweenLetters;
         }
