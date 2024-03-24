@@ -4,7 +4,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
-
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public GuessManager guessManager;
@@ -35,26 +35,27 @@ public class GameManager : MonoBehaviour
         textWordComponent = windowFinal.transform.Find("WordText").GetComponent<TextMeshProUGUI>();
 
         buttonGenerator.Generate();
+
+        windowFinal.SetActive(false);
         StartPlay();
     }
 
     public void StartPlay()
     {
         level++;
-        windowFinal.SetActive(false);
 
-        countOfGuesses = 0;
-
-        buttonGenerator.SetActiveButtons(true);
-
-        guessManager.PrepareWord();
-
-        uiManager.UpdateUI();
+        AnimatePanelDisappear(windowFinal, () =>
+        {
+            countOfGuesses = 0;
+            buttonGenerator.SetActiveButtons(true);
+            guessManager.PrepareWord();
+            uiManager.UpdateUI();
+        });
     }
 
     public void OpenFinalWindow(bool IsWin)
     {
-        windowFinal.SetActive(true);
+        AnimatePanelAppear(windowFinal);
         buttonGenerator.SetActiveButtons(false);
 
         textWordComponent.text = "";
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
             {
                 textWordComponent.text = "Твое слово: " + guessManager.guessedWord;
                 sfxManager.PlaySound("activatingLoseWindowSound");
-                //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
+
                 hp--;
                 if (hp > 0)
                 {
@@ -163,6 +164,34 @@ public class GameManager : MonoBehaviour
         Debug.Log("restart game");
 
         // restart game
+    }
+
+    public void AnimatePanelAppear(GameObject panel)
+    {
+        panel.SetActive(false);
+
+        panel.transform.localScale = Vector3.zero;
+
+        panel.SetActive(true);
+        panel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+    }
+
+    public void AnimatePanelDisappear(GameObject panel, System.Action callback)
+    {
+        panel.transform.DOScale(0f, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            panel.SetActive(false);
+            AnimateAllLetterButtons();
+            callback?.Invoke();
+        });
+    }
+
+    public void AnimateAllLetterButtons()
+    {
+        foreach(GameObject buttonLetter in buttonGenerator.letterButtons)
+        {
+            buttonGenerator.AnimateButton(buttonLetter);
+        }
     }
 }
 

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class ButtonGenerator : MonoBehaviour
 {
@@ -12,7 +14,9 @@ public class ButtonGenerator : MonoBehaviour
     private float offsetXBetweenButtons;
     private float offsetYBetweenButtons;
 
-    List<GameObject> letterButtons = new List<GameObject>();
+    private float yDiffAnimation;
+
+    public List<GameObject> letterButtons = new List<GameObject>();
 
     public void Generate()
     {
@@ -49,6 +53,7 @@ public class ButtonGenerator : MonoBehaviour
                 yForRow += offsetYBetweenButtons;
             }
 
+            yDiffAnimation = yForRow;
             for (int col = 0; col < numberOfColumns; col++)
             {
                 GameObject newButton = Instantiate(buttonPrefab, transform);
@@ -66,6 +71,7 @@ public class ButtonGenerator : MonoBehaviour
                 x += offsetXBetweenButtons;
             }
         }
+        SetActiveButtons(false);
     }
 
     private char GetRussianLetter(int row, int col)
@@ -85,5 +91,15 @@ public class ButtonGenerator : MonoBehaviour
         {
             button.SetActive(IsActive);
         }
+    }
+
+    public void AnimateButton(GameObject buttonLetter)
+    {
+        float x_final = buttonLetter.transform.localPosition.x;
+        float y_final = buttonLetter.transform.localPosition.y;
+
+        buttonLetter.transform.localPosition = new Vector3(x_final, y_final - offsetYBetweenButtons, 0f);
+
+        buttonLetter.transform.DOLocalMoveY(y_final, 1f).SetEase(Ease.OutBounce);
     }
 }
