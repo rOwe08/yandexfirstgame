@@ -1,8 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
+using DG.Tweening;
 
 public class LetterButton : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class LetterButton : MonoBehaviour
         {
             Debug.LogError("GameManager is not initialized");
         }
+
+        transform.DOScale(1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnButtonClick()
