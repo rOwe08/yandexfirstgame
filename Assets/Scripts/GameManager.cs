@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class GameManager : MonoBehaviour
         buttonGenerator.SetActiveButtons(false);
 
         TextMeshProUGUI textResultComponent = windowFinal.transform.Find("ResultText").GetComponent<TextMeshProUGUI>();
-        
+        Button buttonFinal = windowFinal.transform.Find("ButtonFinal").GetComponent<Button>();
+       
         if (textResultComponent != null)
         {
             // Resetting the previous word letter objects
@@ -57,12 +59,24 @@ public class GameManager : MonoBehaviour
             {
                 textResultComponent.text = "слово угадано!";
                 score += guessManager.guessedWord.Length;
+
+                buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
             }
             else
             {
-                textResultComponent.text = "слово не угадано!";
                 //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
                 hp--;
+                if (hp > 0)
+                {
+                    textResultComponent.text = "слово не угадано!";
+                    buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
+                }
+                else
+                {
+                    textResultComponent.text = "слово не угадано! \n не хватает жизней!";
+                    buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "начать заново";
+                }
+
             }
         }
         else
