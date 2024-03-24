@@ -212,6 +212,7 @@ MonoBehaviour:
   guessManager: {fileID: 728392013}
   uiManager: {fileID: 466244625}
   windowFinal: {fileID: 1256610925}
+  wordPlaceholderGenerator: {fileID: 1603557755}
   buttonGenerator: {fileID: 1603557750}
   countOfGuesses: 0
   limitOfGuesses: 0

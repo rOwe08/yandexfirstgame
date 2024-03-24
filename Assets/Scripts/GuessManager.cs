@@ -48,8 +48,6 @@ public class GuessManager : MonoBehaviour
 
     public void SelectLetter(char letter)
     {
-        Guess(letter);
-
         for (int i = 0; i < guessedWord.Length; i++)
         {
             if (guessedWord[i] == letter)
@@ -57,6 +55,8 @@ public class GuessManager : MonoBehaviour
                 wordPlaceholderGenerator.wordLetters[i].transform.GetChild(0).gameObject.SetActive(true);
             }
         }
+
+        Guess(letter);
     }
 
     public void Guess(char letter)

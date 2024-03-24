@@ -16,12 +16,6 @@ public class WordPlaceholderGenerator : MonoBehaviour
     {
         float screenWidth = Screen.width;
 
-        // Resetting the previous word letter objects
-        if (wordLetters.Count > 0 )
-        {
-            RemoveCreatedPlaceholders();
-        }
-
         string quessedWord = guessManager.guessedWord;
         float offsetX = screenWidth / 2f;
         int numOfLetters = quessedWord.Length;
@@ -54,7 +48,7 @@ public class WordPlaceholderGenerator : MonoBehaviour
         }
     }
 
-    private void RemoveCreatedPlaceholders()
+    public void RemoveCreatedPlaceholders()
     {
         foreach (GameObject placeHolder in wordLetters)
         {

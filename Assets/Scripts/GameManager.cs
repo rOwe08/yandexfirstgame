@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public GuessManager guessManager;
     public UIManager uiManager;
     public GameObject windowFinal;
+    public WordPlaceholderGenerator wordPlaceholderGenerator;
 
     public ButtonGenerator buttonGenerator;
 
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour
         
         if (textResultComponent != null)
         {
+            // Resetting the previous word letter objects
+            wordPlaceholderGenerator.RemoveCreatedPlaceholders();
+
             if (IsWin)
             {
                 textResultComponent.text = "Победа!";
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 textResultComponent.text = "Поражение!";
-                guessManager.RevealWord();
+                //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
                 hp--;
             }
         }
