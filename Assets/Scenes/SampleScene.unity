@@ -400,7 +400,9 @@ MonoBehaviour:
   levelText: {fileID: 1818215630}
   hpText: {fileID: 432173573}
   scoreText: {fileID: 488322096}
+  themeText: {fileID: 1859730866}
   gameManager: {fileID: 409808599}
+  guessManager: {fileID: 728392013}
 --- !u!4 &466244626
 Transform:
   m_ObjectHideFlags: 0
@@ -690,6 +692,7 @@ MonoBehaviour:
   gameManager: {fileID: 409808599}
   wordPlaceholderGenerator: {fileID: 1603557755}
   guessedWord: 
+  guessedWordTheme: 
   countOfGuessedLetters: 0
   words: []
 --- !u!4 &728392014
@@ -1002,6 +1005,11 @@ Transform:
 --- !u!1 &1818215630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1837566424294075305, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1859730866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 337916727904666555, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
   m_PrefabInstance: {fileID: 1256610924}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

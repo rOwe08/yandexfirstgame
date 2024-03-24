@@ -10,9 +10,32 @@ public class GuessManager : MonoBehaviour
     public WordPlaceholderGenerator wordPlaceholderGenerator;
 
     public string guessedWord;
+    public string guessedWordTheme;
+
     public int countOfGuessedLetters;
 
     public List<string> words;
+
+    public Dictionary<string, List<string>> playableThemeWordMapper;
+    public Dictionary<string, List<string>> originalThemeWordMapper = new Dictionary<string, List<string>>
+    {
+        { "Животные", new List<string> { "щенок", "котенок", "черепаха", "кролик", "хомяк", "пони" } },
+        { "Фрукты", new List<string> { "яблоко", "банан", "вишня", "финик", "киви", "манго" } },
+        { "Мультгерои", new List<string> { "Эльза", "Моана", "Человек-паук", "Пикачу", "Губка Боб", "Бэтмен" } },
+        { "Супергерои", new List<string> { "Железный человек", "Тор", "Халк", "Флеш", "Супермен", "Бэтгерл" } },
+        { "Игрушки", new List<string> { "лего", "барби", "единорог", "робот", "спиннер", "головоломка" } },
+        { "Школа", new List<string> { "учитель", "карандаш", "рюкзак", "домашняя работа", "мелки", "ланчбокс" } },
+        { "Цвета", new List<string> { "красный", "оранжевый", "желтый", "зеленый", "синий", "фиолетовый" } },
+        { "Космос", new List<string> { "звезда", "планета", "галактика", "комета", "космонавт", "ракета" } },
+        { "Подводный мир", new List<string> { "рыба", "коралл", "осьминог", "водоросли", "дельфин", "акула" } },
+        { "Фантастика", new List<string> { "дракон", "фея", "волшебник", "единорог", "тролль", "огр" } },
+        { "Спорт", new List<string> { "футбол", "баскетбол", "бейсбол", "теннис", "гимнастика", "катание" } },
+        { "Технологии", new List<string> { "ноутбук", "робот", "гаджет", "планшет", "дрон", "приложение" } },
+        { "Видеоигры", new List<string> { "Майнкрафт", "Роблокс", "Фортнайт", "Амонг Ас", "Покемон", "Зельда" } },
+        { "Праздники", new List<string> { "рождество", "хэллоуин", "пасха", "благодарение", "валентинов день", "новый год" } },
+        { "Природа", new List<string> { "цветок", "лес", "гора", "река", "пустыня", "вулкан" } },
+        // Добавляйте больше тем и слов по мере необходимости.
+    };
 
     public void PrepareWord()
     {
@@ -23,31 +46,32 @@ public class GuessManager : MonoBehaviour
 
     public void ChooseWord()
     {
-        if (words is null || words.Count == 0)
+        if (playableThemeWordMapper is null)
         {
-            words = new List<string>
-            {
-                "человек паук",
-               "майнкрафт", "барби", "футбол", "робот", "динозавр", "космос", "спорткар", "супергерой", "елса", "олаф",
-                "принцесса", "пират", "смартфон", "планшет", "наушники", "скейтборд", "ролики", "лего", "бэтмен", "человекпаук",
-                "йогурт", "кексы", "смузи", "трансформер", "пиксель", "эмодзи", "хэштег", "селфи", "ютуб", "блогер",
-                "ангрибёрдс", "покемон", "зумер", "фортнайт", "симс", "пеппа", "мультфильм", "аниме", "марио", "луиджи",
-                "соник", "хогвартс", "джедай", "ситх", "губка", "боб", "патрик", "смешарики", "лунтик", "фиксики",
-                "нуб", "про", "влог", "дрифт", "сабвейсерф", "эльза", "дисней", "ниндзяго", "тролли", "бейблэйд",
-                "гаджет", "лайк", "мирко", "дота", "шахматы", "кен", "модник", "футболка", "джинсы", "кроссовки",
-                "фрисби", "конструктор", "звёзды", "снежок", "гарри", "поттер", "фродо", "хоббит", "эндермен", "крипер",
-                "сайди", "мисс", "кэти", "герой", "квест", "меч", "щит", "волшебник", "дракон", "приключение",
-                "киндер", "сюрприз", "лазертаг", "джумпер", "моана", "маугли", "неймар", "месси", "капитан", "америка"
-            };
+            playableThemeWordMapper = new Dictionary<string, List<string>>(originalThemeWordMapper);
         }
 
-        int wordIndex = Random.Range(0, words.Count - 1);
+        // Select the theme
+        var themeList = playableThemeWordMapper.Keys.ToList();
+        var themeIndex = Random.Range(0, themeList.Count);
+        guessedWordTheme = themeList[themeIndex];
 
-        //int wordIndex = 0;
+        // Select the word from the theme
 
-        guessedWord = words[wordIndex];
-        Debug.Log($"Guessed word: {guessedWord}");
-        words.RemoveAt(wordIndex);
+        // if the list is empty, reset it from the original mapper
+        if (!playableThemeWordMapper[guessedWordTheme].Any())
+        {
+            playableThemeWordMapper[guessedWordTheme] = new List<string>(originalThemeWordMapper[guessedWordTheme]);
+        }
+
+        // Choose a random word from the theme
+        int wordIndex = Random.Range(0, playableThemeWordMapper[guessedWordTheme].Count);
+        guessedWord = playableThemeWordMapper[guessedWordTheme][wordIndex];
+
+        // Remove the chosen word from the list
+        playableThemeWordMapper[guessedWordTheme].RemoveAt(wordIndex);
+
+        Debug.Log($"Выбранная тема: {guessedWordTheme}, выбранное слово: {guessedWord}");
 
         wordPlaceholderGenerator.Generate();
     }
