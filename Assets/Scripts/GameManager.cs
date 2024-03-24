@@ -75,10 +75,17 @@ public class GameManager : MonoBehaviour
                 textResultComponent.text = "слово угадано!";
                 buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
                 buttonFinal.onClick.RemoveAllListeners();
-                buttonFinal.GetComponent<Button>().onClick.AddListener(NextWordButtonClick);
+                buttonFinal.onClick.AddListener(() => {
+                    NextWordButtonClick();
+                    sfxManager.PlaySound("clickButtonFinalSound");
+                });
 
                 yandexButton.onClick.RemoveAllListeners();
-                yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForX2);
+                yandexButton.onClick.AddListener(() => {
+                    WatchAdForX2();
+                    sfxManager.PlaySound("clickButtonFinalSound");
+                });
+
             }
             else
             {
@@ -91,20 +98,32 @@ public class GameManager : MonoBehaviour
                     textResultComponent.text = "слово не угадано!";
                     buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
                     buttonFinal.onClick.RemoveAllListeners();
-                    buttonFinal.GetComponent<Button>().onClick.AddListener(NextWordButtonClick);
+                    buttonFinal.onClick.AddListener(() => {
+                        NextWordButtonClick();
+                        sfxManager.PlaySound("clickButtonFinalSound");
+                    });
 
                     yandexButton.onClick.RemoveAllListeners();
-                    yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForHP);
+                    yandexButton.onClick.AddListener(() => {
+                        WatchAdForHP();
+                        sfxManager.PlaySound("clickButtonFinalSound");
+                    });
                 }
                 else
                 {
                     textResultComponent.text = "слово не угадано! \n не хватает жизней!";
                     buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "начать заново";
                     buttonFinal.onClick.RemoveAllListeners();
-                    buttonFinal.GetComponent<Button>().onClick.AddListener(PlayAgainButtonClick);
+                    buttonFinal.onClick.AddListener(() => {
+                        PlayAgainButtonClick();
+                        sfxManager.PlaySound("clickButtonFinalSound");
+                    });
 
                     yandexButton.onClick.RemoveAllListeners();
-                    yandexButton.GetComponent<Button>().onClick.AddListener(WatchAdForHP);
+                    yandexButton.onClick.AddListener(() => {
+                        WatchAdForHP();
+                        sfxManager.PlaySound("clickButtonFinalSound");
+                    });
                 }
 
             }

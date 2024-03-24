@@ -5,13 +5,15 @@ using UnityEngine;
 public class SFXManager : MonoBehaviour
 {
     private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
-    public AudioClip clickLetterButtonSound;
+    public AudioClip clickLetterButtonSound;    
+    public AudioClip clickButtonFinalSound;
     public AudioClip activatingLoseWindowSound;
     public AudioClip activatingWinWindowSound;
 
     private void Start()
     {
-        AddSound("clickLetterButtonSound", clickLetterButtonSound);
+        AddSound("clickLetterButtonSound", clickLetterButtonSound);  
+        AddSound("clickButtonFinalSound", clickButtonFinalSound);
         AddSound("activatingLoseWindowSound", activatingLoseWindowSound);
         AddSound("activatingWinWindowSound", activatingWinWindowSound);
     }

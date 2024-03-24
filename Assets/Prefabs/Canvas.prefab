@@ -876,7 +876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u0412\u0430\u0448\u0435 \u0441\u043B\u043E\u0432\u043E: \u0413\u0435\u0439"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 232bcd5fe365645489813ba1fc5d03ff, type: 2}
   m_sharedMaterial: {fileID: 1659417264018106524, guid: 232bcd5fe365645489813ba1fc5d03ff, type: 2}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
