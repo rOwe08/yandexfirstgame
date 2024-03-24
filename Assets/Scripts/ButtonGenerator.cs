@@ -19,7 +19,7 @@ public class ButtonGenerator : MonoBehaviour
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
 
-        float offsetX = screenWidth / 2f;
+        float leftScreenSide = -(screenWidth / 2f);
         float offsetY = screenHeight / 2f;
         float yForRow = 0;
 
@@ -27,15 +27,19 @@ public class ButtonGenerator : MonoBehaviour
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
 
         float totalWidthButtons = numberOfColumns * buttonWidth;
+        float offsetBetweenButtons = buttonWidth / 2;
+        float totalWidthWithOffset = totalWidthButtons + offsetBetweenButtons * (numberOfColumns - 1);
+        float totalWidthForScreenOffset = screenWidth - totalWidthWithOffset;
 
-        float totalWidthForOffset = screenWidth - totalWidthButtons;
+        float x;
 
-        offsetXBetweenButtons = totalWidthForOffset / (numberOfColumns);
+        offsetXBetweenButtons = buttonWidth + buttonWidth / 2;
         offsetYBetweenButtons = buttonHeight / 2;
 
         for (int row = 0; row < numberOfRows; row++)
         {
-            float xForRow = 0;
+            x = leftScreenSide + totalWidthForScreenOffset / 2 + buttonWidth / 2;
+
             if (row == 0)
             {
                 yForRow += offsetYBetweenButtons * 2;
@@ -47,21 +51,19 @@ public class ButtonGenerator : MonoBehaviour
 
             for (int col = 0; col < numberOfColumns; col++)
             {
-                xForRow += offsetXBetweenButtons;
-
                 GameObject newButton = Instantiate(buttonPrefab, transform);
 
                 letterButtons.Add(newButton);
-
-                float x = col * buttonWidth - offsetX;
                 float y = row * buttonHeight - offsetY;
 
-                newButton.transform.localPosition = new Vector3(xForRow + x, y + yForRow, 0f);
+                newButton.transform.localPosition = new Vector3(x, y + yForRow, 0f);
 
                 char letter = GetRussianLetter(row, col);
 
                 newButton.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
                 newButton.GetComponent<LetterButton>().letter = letter;
+
+                x += offsetXBetweenButtons;
             }
         }
     }

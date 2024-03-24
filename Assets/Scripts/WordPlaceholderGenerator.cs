@@ -17,19 +17,17 @@ public class WordPlaceholderGenerator : MonoBehaviour
         float screenWidth = Screen.width;
 
         string quessedWord = guessManager.guessedWord;
-        float offsetX = screenWidth / 2f;
+        float leftScreenSide = -(screenWidth / 2f);
         int numOfLetters = quessedWord.Length;
 
         float wordLetterWidth = wordLetterPanelPrefab.GetComponent<RectTransform>().rect.width;
         float totalWidthWordLetter = numOfLetters * wordLetterWidth;
 
-        float totalWidthForOverallOffset = screenWidth - totalWidthWordLetter;
         float offsetBetweenLetters = wordLetterWidth / 2;
         float totalWidthWithOffset = totalWidthWordLetter + offsetBetweenLetters * (numOfLetters - 1);
         float totalWidthForScreenOffset = screenWidth - totalWidthWithOffset;
 
-        float x = -(screenWidth / 2) + totalWidthForScreenOffset / 2 + wordLetterWidth / 2;
-
+        float x = leftScreenSide + totalWidthForScreenOffset / 2 + wordLetterWidth / 2;
 
         offsetXBetweenLetters = wordLetterWidth + wordLetterWidth / 2;
 
