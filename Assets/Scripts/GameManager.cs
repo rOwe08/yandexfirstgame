@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         buttonGenerator.SetActiveButtons(false);
 
         TextMeshProUGUI textResultComponent = windowFinal.transform.Find("ResultText").GetComponent<TextMeshProUGUI>();
+
         Button buttonFinal = windowFinal.transform.Find("ButtonFinal").GetComponent<Button>();
         Button yandexButton = windowFinal.transform.Find("YandexButton").GetComponent<Button>();
 
