@@ -341,6 +341,7 @@ MonoBehaviour:
   uiManager: {fileID: 466244625}
   windowFinal: {fileID: 1256610925}
   wordPlaceholderGenerator: {fileID: 1603557755}
+  sfxManager: {fileID: 668633647}
   buttonGenerator: {fileID: 1603557750}
   countOfGuesses: 0
   limitOfGuesses: 0
@@ -542,7 +543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf62c1eb0ead9a41b027ffa532e9ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickLetterButton: {fileID: 8300000, guid: 4f526d447658cac438b761556dc25e73, type: 3}
+  clickLetterButtonSound: {fileID: 8300000, guid: 4f526d447658cac438b761556dc25e73, type: 3}
+  activatingLoseWindowSound: {fileID: 8300000, guid: ada7375b722ce8245a9bbcde4f2097ba, type: 3}
+  activatingWinWindowSound: {fileID: 8300000, guid: def08e33b547af74f96f4730bf6fec08, type: 3}
 --- !u!82 &668633648
 AudioSource:
   m_ObjectHideFlags: 0

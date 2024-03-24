@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public GameObject windowFinal;
     public WordPlaceholderGenerator wordPlaceholderGenerator;
+    public SFXManager sfxManager;
 
     private TextMeshProUGUI textResultComponent;
     private TextMeshProUGUI textWordComponent;
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
 
             if (IsWin)
             {
+                sfxManager.PlaySound("activatingWinWindowSound");
                 score += guessManager.guessedWord.Length;
 
                 textResultComponent.text = "слово угадано!";
@@ -80,7 +83,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 textWordComponent.text = "Твое слово: " + guessManager.guessedWord;
-
+                sfxManager.PlaySound("activatingLoseWindowSound");
                 //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
                 hp--;
                 if (hp > 0)
