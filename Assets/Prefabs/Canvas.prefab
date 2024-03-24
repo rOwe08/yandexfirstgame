@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 479812049885116353}
   - component: {fileID: 896566559547144300}
   - component: {fileID: 4076761850450010448}
+  - component: {fileID: 4528511755350685956}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -462,9 +463,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d63bae59a619b4499aa3a31b3c5dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guessManager: {fileID: 0}
   buttonPrefab: {fileID: 6735078396828207519, guid: 8ea6557cf775a054ab680028b54bbf7e, type: 3}
   wordLetterPanelPrefab: {fileID: 8008465572808568256, guid: 5e857f61ed4a7624c9a98626d36a3973, type: 3}
+--- !u!114 &4528511755350685956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2184765077086714686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e324f4eee01bf4347a2f079ad6aa4ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guessManager: {fileID: 0}
+  wordLetterPanelPrefab: {fileID: 8008465572808568256, guid: 5e857f61ed4a7624c9a98626d36a3973, type: 3}
+  wordLetters: []
 --- !u!1 &2364033406787360351
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,37 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class LetterButton : MonoBehaviour
 {
     public char letter;
-    private GameManager gameManager;
-    // Start is called before the first frame update
+
+    private GuessManager guessManager;
+
     void Start()
     {   
-        GetComponent<Button>().onClick.AddListener(onClick);
+        GetComponent<Button>().onClick.AddListener(OnButtonClick);
 
-        gameManager = FindObjectOfType<GameManager>();
-        if (gameManager == null)
+        guessManager = FindObjectOfType<GuessManager>();
+        if (guessManager == null)
         {
             Debug.LogError("GameManager is not initialized");
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void onClick()
+    public void OnButtonClick()
     {
         Debug.Log(letter);
 
-        gameManager.GetLetter(letter);
+        guessManager.SelectLetter(letter);
 
         this.gameObject.SetActive(false);
     }

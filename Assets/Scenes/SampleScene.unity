@@ -209,12 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3189fa7975069eb4d8d5346f3b4edb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countOfGuesses: 0
-  limitOfGuesses: 0
   guessManager: {fileID: 728392013}
   uiManager: {fileID: 466244625}
-  buttonGenerator: {fileID: 1603557750}
   windowFinal: {fileID: 1256610925}
+  buttonGenerator: {fileID: 1603557750}
+  countOfGuesses: 0
+  limitOfGuesses: 0
   level: 0
   hp: 0
   score: 0
@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 409808599}
+  wordPlaceholderGenerator: {fileID: 1603557755}
   guessedWord: 
   countOfGuessedLetters: 0
   words: []
@@ -475,6 +476,14 @@ PrefabInstance:
       propertyPath: guessManager
       value: 
       objectReference: {fileID: 728392013}
+    - target: {fileID: 4528511755350685956, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+      propertyPath: guessManager
+      value: 
+      objectReference: {fileID: 728392013}
+    - target: {fileID: 4528511755350685956, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+      propertyPath: wordLetterPanelPrefab
+      value: 
+      objectReference: {fileID: 8008465572808568256, guid: 5e857f61ed4a7624c9a98626d36a3973, type: 3}
     - target: {fileID: 6970954197987770649, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -576,7 +585,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1682628608413373417, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
@@ -594,6 +604,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3d63bae59a619b4499aa3a31b3c5dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1603557755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4528511755350685956, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e324f4eee01bf4347a2f079ad6aa4ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1627742712
