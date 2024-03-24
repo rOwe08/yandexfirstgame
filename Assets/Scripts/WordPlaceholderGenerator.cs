@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -43,7 +44,7 @@ public class WordPlaceholderGenerator : MonoBehaviour
 
                 newWordLetter.GetComponentInChildren<TextMeshProUGUI>().text = guessedWord[i].ToString();
                 newWordLetter.transform.GetChild(0).gameObject.SetActive(false);
-
+                newWordLetter.gameObject.SetActive(false);
             }
 
             x += offsetXBetweenLetters;
@@ -57,5 +58,23 @@ public class WordPlaceholderGenerator : MonoBehaviour
             Destroy(placeHolder);
         }
         wordLetters.Clear();
+    }
+
+    public void SetActiveWordLetters(bool IsActive)
+    {
+        foreach (GameObject wordLetter in wordLetters)
+        {
+            wordLetter.SetActive(IsActive);
+        }
+    }
+
+    public void AnimateLetterAppear(GameObject wordLetter)
+    {
+        float x_final = wordLetter.transform.localPosition.x;
+        float y_final = wordLetter.transform.localPosition.y;
+
+        wordLetter.transform.localPosition = new Vector3(x_final - offsetXBetweenLetters * 10, y_final, 0f);
+
+        wordLetter.transform.DOLocalMoveX(x_final, 1f).SetEase(Ease.OutBounce);
     }
 }

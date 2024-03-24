@@ -43,12 +43,11 @@ public class GameManager : MonoBehaviour
     public void StartPlay()
     {
         level++;
-
+        guessManager.PrepareWord();
         AnimatePanelDisappear(windowFinal, () =>
         {
             countOfGuesses = 0;
             buttonGenerator.SetActiveButtons(true);
-            guessManager.PrepareWord();
             uiManager.UpdateUI();
         });
     }
@@ -182,8 +181,18 @@ public class GameManager : MonoBehaviour
         {
             panel.SetActive(false);
             AnimateAllLetterButtons();
+            AnimateAllWordLettersAppear();
             callback?.Invoke();
         });
+    }
+
+    public void AnimateAllWordLettersAppear()
+    {
+        wordPlaceholderGenerator.SetActiveWordLetters(true);
+        foreach (GameObject wordLetter in wordPlaceholderGenerator.wordLetters)
+        {
+            wordPlaceholderGenerator.AnimateLetterAppear(wordLetter);
+        }
     }
 
     public void AnimateAllLetterButtons()
