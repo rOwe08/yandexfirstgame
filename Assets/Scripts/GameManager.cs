@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject windowFinal;
     public WordPlaceholderGenerator wordPlaceholderGenerator;
 
+    private TextMeshProUGUI textResultComponent;
+    private TextMeshProUGUI textWordComponent;
+
     public ButtonGenerator buttonGenerator;
 
     public int countOfGuesses;
@@ -25,6 +28,9 @@ public class GameManager : MonoBehaviour
         level = 0;
         hp = 3;
         score = 0;
+
+        textResultComponent = windowFinal.transform.Find("ResultText").GetComponent<TextMeshProUGUI>();
+        textWordComponent = windowFinal.transform.Find("WordText").GetComponent<TextMeshProUGUI>();
 
         buttonGenerator.Generate();
         StartPlay();
@@ -49,7 +55,8 @@ public class GameManager : MonoBehaviour
         windowFinal.SetActive(true);
         buttonGenerator.SetActiveButtons(false);
 
-        TextMeshProUGUI textResultComponent = windowFinal.transform.Find("ResultText").GetComponent<TextMeshProUGUI>();
+        textWordComponent.text = "";
+
         Button buttonFinal = windowFinal.transform.Find("ButtonFinal").GetComponent<Button>();
         Button yandexButton = windowFinal.transform.Find("YandexButton").GetComponent<Button>();
 
@@ -72,6 +79,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                textWordComponent.text = "Твое слово: " + guessManager.guessedWord;
+
                 //guessManager.RevealWord();   // TODO: Just to show the word as a text in windowFinal gameobject
                 hp--;
                 if (hp > 0)
