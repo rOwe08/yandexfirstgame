@@ -308,6 +308,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
+--- !u!1 &377931976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7395285962071197994, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &409808598
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +405,7 @@ MonoBehaviour:
   levelText: {fileID: 1818215630}
   hpText: {fileID: 432173573}
   scoreText: {fileID: 488322096}
-  themeText: {fileID: 1859730866}
+  themeText: {fileID: 377931976}
   gameManager: {fileID: 409808599}
   guessManager: {fileID: 728392013}
 --- !u!4 &466244626
@@ -1005,11 +1010,6 @@ Transform:
 --- !u!1 &1818215630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1837566424294075305, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
-  m_PrefabInstance: {fileID: 1256610924}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1859730866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 337916727904666555, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
   m_PrefabInstance: {fileID: 1256610924}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
