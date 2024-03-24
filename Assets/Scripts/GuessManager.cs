@@ -42,6 +42,9 @@ public class GuessManager : MonoBehaviour
         }
 
         int wordIndex = Random.Range(0, words.Count - 1);
+
+        //int wordIndex = 0;
+
         guessedWord = words[wordIndex];
         Debug.Log($"Guessed word: {guessedWord}");
         words.RemoveAt(wordIndex);
