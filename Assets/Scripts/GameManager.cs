@@ -75,15 +75,15 @@ public class GameManager : MonoBehaviour
 
         if (countOfWrongGuesses >= limitOfWrongGuesses)
         {
-            OnRoundEndbool(false);
+            OnRoundEnd(false);
         }
         else if (guessManager.CountOfCorrectGuesses == guessManager.GuessedWordTrueLength)
         {
-            OnRoundEndbool(true);
+            OnRoundEnd(true);
         }
     }
 
-    private void OnRoundEndbool(bool isWin)
+    private void OnRoundEnd(bool isWin)
     {
         uiManager.OnRoundEnd();
 
