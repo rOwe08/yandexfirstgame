@@ -7,6 +7,7 @@ using UnityEngine.VFX;
 using DG.Tweening;
 using System.Diagnostics.Contracts;
 using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 public class GameManager : MonoBehaviour
 {
     public GuessManager guessManager;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         limitOfWrongGuesses = 10;
-        level = 0;
+        level = 1;
         hp = 3;
         score = 0;
 
@@ -45,10 +46,21 @@ public class GameManager : MonoBehaviour
         StartPlay();
     }
 
+    public void PlayAgainButtonClick()
+    {
+        Debug.Log("restart game");
+
+        // reset the player game variables
+        level = 1;
+        hp = 3;
+        score = 0;
+
+        StartPlay();
+    }
+
     public void StartPlay()
     {
-        level++;
-        guessManager.PrepareWord();
+        guessManager.ChooseWord();
         huggiWaggi.ResetBody();
         DisableParticleSystem();
 
@@ -58,6 +70,42 @@ public class GameManager : MonoBehaviour
             buttonGenerator.SetActiveButtons(true);
             uiManager.UpdateUI();
         });
+    }
+
+    public void OnLetterSelect(char letter)
+    {
+        // play the button clicked sound effect
+        sfxManager.PlaySound("clickLetterButtonSound");
+
+        // check if selected letter is correct
+        bool IsCorrectlyGuessed = guessManager.SelectLetter(letter);
+
+        // if wrong guess
+        if (!IsCorrectlyGuessed)
+        {
+            Debug.Log("Incorrect letter!");
+
+            sfxManager.PlaySound("incorrectLetterSound");
+            huggiWaggi.ActivateNextPart();
+
+            countOfWrongGuesses += 1;
+
+            if (countOfWrongGuesses >= limitOfWrongGuesses)
+            {
+                OpenFinalWindow(false);
+            }
+        }
+        else
+        {
+            Debug.Log("Correct letter!");
+            
+            // check if player guessed the whole word
+            if (guessManager.CountOfCorrectGuesses == guessManager.GuessedWordTrueLength)
+            {
+                Debug.Log("U win!");
+                OpenFinalWindow(true);
+            }
+        }
     }
 
     public void OpenFinalWindow(bool IsWin)
@@ -77,8 +125,10 @@ public class GameManager : MonoBehaviour
 
             if (IsWin)
             {
+                level++;
+                score += guessManager.GuessedWord.Length;
+
                 sfxManager.PlaySound("activatingWinWindowSound");
-                score += guessManager.guessedWord.Length;
                 EnableParticleSystem();
 
                 textResultComponent.text = "слово угадано!";
@@ -100,7 +150,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                textWordComponent.text = "Твое слово: " + guessManager.guessedWord;
+                textWordComponent.text = "Твое слово: " + guessManager.GuessedWord;
                 sfxManager.PlaySound("activatingLoseWindowSound");
 
                 hp--;
@@ -163,17 +213,9 @@ public class GameManager : MonoBehaviour
         /// TODO:
         Debug.Log("X2 score");
 
-        score += guessManager.guessedWord.Length;
+        score += guessManager.GuessedWord.Length;
 
         StartPlay();
-    }
-
-    public void PlayAgainButtonClick()
-    {
-        /// TODO:
-        Debug.Log("restart game");
-
-        // restart game
     }
 
     public void AnimatePanelAppear(GameObject panel)

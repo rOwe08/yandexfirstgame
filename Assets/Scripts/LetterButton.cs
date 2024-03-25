@@ -1,25 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.VFX;
 using DG.Tweening;
 
 public class LetterButton : MonoBehaviour
 {
     public char letter;
 
-    private GuessManager guessManager;
-    private SFXManager sfxManager;
+    private GameManager gameManager;
 
     void Start()
     {   
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
 
-        guessManager = FindObjectOfType<GuessManager>();
-        sfxManager = FindObjectOfType<SFXManager>();
+        gameManager = FindObjectOfType<GameManager>();
 
-        if (guessManager == null)
+        if (gameManager == null)
         {
             Debug.LogError("GameManager is not initialized");
         }
@@ -29,11 +24,10 @@ public class LetterButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        Debug.Log(letter);
+        // call game manager to handle the button click
+        gameManager.OnLetterSelect(letter);
 
-        sfxManager.PlaySound("clickLetterButtonSound");
-        guessManager.SelectLetter(letter);
-
+        // animate the button fade
         transform.DOScale(0f, 1f).OnComplete(() =>
         {
             this.gameObject.SetActive(false);

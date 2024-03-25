@@ -1,23 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TMPro.Examples;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class GuessManager : MonoBehaviour
 {
+    #region Memebers
+
     public GameManager gameManager;
-    public SFXManager sfxManager;
-
-    public WordPlaceholderGenerator wordPlaceholderGenerator;
-
-    public string guessedWord;
-    public string guessedWordTheme;
     public HuggiWaggi huggiWaggi;
-
-    public int countOfGuessedLetters;
-
-    public List<string> words;
+    public WordPlaceholderGenerator wordPlaceholderGenerator;
 
     public Dictionary<string, List<string>> playableThemeWordMapper;
     public Dictionary<string, List<string>> originalThemeWordMapper = new Dictionary<string, List<string>>
@@ -39,109 +30,113 @@ public class GuessManager : MonoBehaviour
         { "Природа", new List<string> { "цветок", "лес", "гора", "река", "пустыня", "вулкан", "море", "ураган" } },
     };
 
-    public void PrepareWord()
-    {
-        countOfGuessedLetters = 0;
+    #endregion
 
-        ChooseWord();
-    }
+    #region Properties
+
+    public string GuessedWord {  get; private set; }
+    public string GuessedWordTheme { get; private set; }
+    public int CountOfCorrectGuesses { get; set; }
+    public int GuessedWordTrueLength => GuessedWord.Length - GuessedWord.Count(c => c == ' ');
+
+    #endregion
+
+    #region Public Methods
 
     public void ChooseWord()
     {
+        // initialize the game
+        CountOfCorrectGuesses = 0;
+
         if (playableThemeWordMapper is null)
         {
             playableThemeWordMapper = new Dictionary<string, List<string>>(originalThemeWordMapper);
         }
-
-        // Select the theme
-        var themeList = playableThemeWordMapper.Keys.ToList();
-        var themeIndex = Random.Range(0, themeList.Count);
-        guessedWordTheme = themeList[themeIndex];
-
-        // Select the word from the theme
-
-        // if the list is empty, reset it from the original mapper
-        if (!playableThemeWordMapper[guessedWordTheme].Any())
-        {
-            playableThemeWordMapper[guessedWordTheme] = new List<string>(originalThemeWordMapper[guessedWordTheme]);
-        }
-
-        // Choose a random word from the theme
-        int wordIndex = Random.Range(0, playableThemeWordMapper[guessedWordTheme].Count);
-        guessedWord = playableThemeWordMapper[guessedWordTheme][wordIndex];
-
-        // Remove the chosen word from the list
-        playableThemeWordMapper[guessedWordTheme].RemoveAt(wordIndex);
-
-        //Debug.Log($"Выбранная тема: {guessedWordTheme}, выбранное слово: {guessedWord}");
-
-        wordPlaceholderGenerator.Generate();
+        
+        // set the word and theme
+        PrepareThemeAndWord();
     }
 
-    public void SelectLetter(char letter)
+    public bool SelectLetter(char letter)
     {
         int nonSpaceCharIndex = -1;
 
-        for (int i = 0; i < guessedWord.Length; i++)
+        for (int i = 0; i < GuessedWord.Length; i++)
         {
-            if (guessedWord[i] == ' ')
+            if (GuessedWord[i] == ' ')
             {
                 continue;
             }
 
             nonSpaceCharIndex++;
 
-            if (guessedWord[i] == letter)
-            {
+            if (GuessedWord[i] == letter)
+            {   
                 wordPlaceholderGenerator.wordLetters[nonSpaceCharIndex].transform.GetChild(0).gameObject.SetActive(true);
             }
         }
 
-        Guess(letter);
+        return Guess(letter);
     }
 
-    public void Guess(char letter)
+    #endregion
+
+    #region Private methods
+
+    private void PrepareThemeAndWord()
+    {
+        // Select the theme
+        var themeList = playableThemeWordMapper.Keys.ToList();
+        var themeIndex = Random.Range(0, themeList.Count);
+        GuessedWordTheme = themeList[themeIndex];
+
+        // Select the word from the theme
+
+        // if the list is empty, reset it from the original mapper
+        if (!playableThemeWordMapper[GuessedWordTheme].Any())
+        {
+            playableThemeWordMapper[GuessedWordTheme] = new List<string>(originalThemeWordMapper[GuessedWordTheme]);
+        }
+
+        // Choose a random word from the theme
+        int wordIndex = Random.Range(0, playableThemeWordMapper[GuessedWordTheme].Count);
+        GuessedWord = playableThemeWordMapper[GuessedWordTheme][wordIndex];
+
+        // Remove the chosen word from the list
+        playableThemeWordMapper[GuessedWordTheme].RemoveAt(wordIndex);
+
+        Debug.Log($"Выбранная тема: {GuessedWordTheme}, выбранное слово: {GuessedWord}");
+
+        wordPlaceholderGenerator.Generate();
+    }
+
+    private bool Guess(char letter)
     {
         bool IsGuessed = false;
 
-        for(int i = 0; i < guessedWord.Length; i++)
+        for(int i = 0; i < GuessedWord.Length; i++)
         {
-            if (guessedWord[i] == letter)
+            if (GuessedWord[i] == letter)
             {
-                countOfGuessedLetters++;
+                CountOfCorrectGuesses++;
                 IsGuessed = true;
             }
         }
 
-        if (!IsGuessed)
-        {
-            sfxManager.PlaySound("incorrectLetterSound");
-
-            Debug.Log("Incorrect letter!");
-            huggiWaggi.ActivateNextPart();
-            gameManager.countOfWrongGuesses += 1;
-
-            if (gameManager.countOfWrongGuesses >= gameManager.limitOfWrongGuesses)
-            {
-                gameManager.OpenFinalWindow(false);
-            }
-        }
-        else
-        {
-            Debug.Log("Correct letter!");
-            if (countOfGuessedLetters == guessedWord.Length - guessedWord.Count(c => c == ' '))
-            {
-                Debug.Log("U win!");
-                gameManager.OpenFinalWindow(true);
-            }
-        }
+        return IsGuessed;
     }
+
+    #endregion
+
+    #region Internal Methods
 
     internal void RevealWord()
     {
-        for (int i = 0; i < guessedWord.Length; i++)
+        for (int i = 0; i < GuessedWord.Length; i++)
         {
              wordPlaceholderGenerator.wordLetters[i].transform.GetChild(0).gameObject.SetActive(true);
         }
     }
+
+    #endregion
 }

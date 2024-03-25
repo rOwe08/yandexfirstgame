@@ -17,7 +17,7 @@ public class WordPlaceholderGenerator : MonoBehaviour
     {
         float screenWidth = Screen.width;
 
-        string guessedWord = guessManager.guessedWord;
+        string guessedWord = guessManager.GuessedWord;
         float leftScreenSide = -(screenWidth / 2f);
         int numOfLetters = guessedWord.Length;
 
