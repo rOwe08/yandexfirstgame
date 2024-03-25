@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.VFX;
 using DG.Tweening;
 using System.Diagnostics.Contracts;
+using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public GuessManager guessManager;
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     public WordPlaceholderGenerator wordPlaceholderGenerator;
     public SFXManager sfxManager;
     public HuggiWaggi huggiWaggi;
+
+    public List<ParticleSystem> particleSystems;
 
     private TextMeshProUGUI textResultComponent;
     private TextMeshProUGUI textWordComponent;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
         level++;
         guessManager.PrepareWord();
         huggiWaggi.ResetBody();
+        DisableParticleSystem();
 
         AnimatePanelDisappear(windowFinal, () =>
         {
@@ -75,6 +79,7 @@ public class GameManager : MonoBehaviour
             {
                 sfxManager.PlaySound("activatingWinWindowSound");
                 score += guessManager.guessedWord.Length;
+                EnableParticleSystem();
 
                 textResultComponent.text = "слово угадано!";
                 buttonFinal.GetComponentInChildren<TextMeshProUGUI>().text = "новое слово";
@@ -82,12 +87,14 @@ public class GameManager : MonoBehaviour
                 buttonFinal.onClick.AddListener(() => {
                     NextWordButtonClick();
                     sfxManager.PlaySound("clickButtonFinalSound");
+                    DisableParticleSystem();
                 });
 
                 yandexButton.onClick.RemoveAllListeners();
                 yandexButton.onClick.AddListener(() => {
                     WatchAdForX2();
                     sfxManager.PlaySound("clickButtonFinalSound");
+                    DisableParticleSystem();
                 });
 
             }
@@ -206,5 +213,31 @@ public class GameManager : MonoBehaviour
             buttonGenerator.AnimateButton(buttonLetter);
         }
     }
+    void Start()
+    {
+        // Для примера, выключим Particle System при старте
+        DisableParticleSystem();
+    }
+
+    public void EnableParticleSystem()
+    {
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.enableEmission = true;
+            particleSystem.Play();
+        }
+    }
+
+    public void DisableParticleSystem()
+    {
+
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.enableEmission = false;
+            particleSystem.Stop();
+        }
+    }
+
+
 }
 
