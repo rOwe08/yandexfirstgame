@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 using DG.Tweening;
+using System.Diagnostics.Contracts;
 public class GameManager : MonoBehaviour
 {
     public GuessManager guessManager;
@@ -12,21 +13,22 @@ public class GameManager : MonoBehaviour
     public GameObject windowFinal;
     public WordPlaceholderGenerator wordPlaceholderGenerator;
     public SFXManager sfxManager;
+    public HuggiWaggi huggiWaggi;
 
     private TextMeshProUGUI textResultComponent;
     private TextMeshProUGUI textWordComponent;
 
     public ButtonGenerator buttonGenerator;
 
-    public int countOfGuesses;
-    public int limitOfGuesses;
+    public int countOfWrongGuesses;
+    public int limitOfWrongGuesses;
     public int level;
     public int hp;
     public int score;
 
     void Awake()
     {
-        limitOfGuesses = 10;
+        limitOfWrongGuesses = 10;
         level = 0;
         hp = 3;
         score = 0;
@@ -44,9 +46,11 @@ public class GameManager : MonoBehaviour
     {
         level++;
         guessManager.PrepareWord();
+        huggiWaggi.ResetBody();
+
         AnimatePanelDisappear(windowFinal, () =>
         {
-            countOfGuesses = 0;
+            countOfWrongGuesses = 0;
             buttonGenerator.SetActiveButtons(true);
             uiManager.UpdateUI();
         });

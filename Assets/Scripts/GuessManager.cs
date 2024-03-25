@@ -11,6 +11,7 @@ public class GuessManager : MonoBehaviour
 
     public string guessedWord;
     public string guessedWordTheme;
+    public HuggiWaggi huggiWaggi;
 
     public int countOfGuessedLetters;
 
@@ -100,7 +101,6 @@ public class GuessManager : MonoBehaviour
     public void Guess(char letter)
     {
         bool IsGuessed = false;
-        gameManager.countOfGuesses += 1;
 
         for(int i = 0; i < guessedWord.Length; i++)
         {
@@ -114,9 +114,11 @@ public class GuessManager : MonoBehaviour
         if (!IsGuessed)
         {
             Debug.Log("Incorrect letter!");
-            if(gameManager.countOfGuesses > gameManager.limitOfGuesses)
+            huggiWaggi.ActivateNextPart();
+            gameManager.countOfWrongGuesses += 1;
+
+            if (gameManager.countOfWrongGuesses >= gameManager.limitOfWrongGuesses)
             {
-                // window
                 gameManager.OpenFinalWindow(false);
             }
         }

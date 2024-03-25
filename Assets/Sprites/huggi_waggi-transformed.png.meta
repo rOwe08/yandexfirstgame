@@ -1,0 +1,517 @@
+fileFormatVersion: 2
+guid: 8c598da1a7eb1394c96108004b4c82b9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_0
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 13
+        width: 119
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -150, y: -285}
+        - {x: -150, y: -225}
+        - {x: -55, y: -225}
+        - {x: -55, y: -285}
+      - - {x: 34.5, y: -24}
+        - {x: 25.5, y: -12}
+        - {x: 13.5, y: -21}
+        - {x: -13.5, y: -30}
+        - {x: -38.5, y: -29}
+        - {x: -49.5, y: -25}
+        - {x: -57.5, y: -18}
+        - {x: -57.5, y: -1}
+        - {x: -51.5, y: 7}
+        - {x: -37.5, y: 18}
+        - {x: -17.5, y: 23}
+        - {x: 0.5, y: 29}
+        - {x: 3.5, y: 18}
+        - {x: 15.5, y: 26}
+        - {x: 22.5, y: 18}
+        - {x: 27.5, y: 26}
+        - {x: 34.5, y: 16}
+        - {x: 38.5, y: 25}
+        - {x: 46.5, y: 16}
+        - {x: 56.5, y: 23}
+        - {x: 57.5, y: -9}
+        - {x: 50.5, y: -24}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa73a2ceb7fb5a4a87721dc1c6e73e5
+      internalID: -934729164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_1
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 105
+        width: 141
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: -165.5}
+        - {x: -23.5, y: -142.5}
+        - {x: -26.5, y: -119.5}
+        - {x: -25.5, y: -102.5}
+        - {x: -28.5, y: -77.5}
+        - {x: -32.5, y: -20.5}
+        - {x: -53.5, y: 104.5}
+        - {x: -61.5, y: 134.5}
+        - {x: -61.5, y: 143.5}
+        - {x: -61.5, y: 156.5}
+        - {x: -69.5, y: 170.5}
+        - {x: -56.5, y: 171.5}
+        - {x: -41.5, y: 146.5}
+        - {x: -6.5, y: 66.5}
+        - {x: 40.5, y: -72.5}
+        - {x: 27.5, y: -166.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce3532e0aaea88469e8f7dc6fb2a943
+      internalID: -373787681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 353
+        width: 237
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83.5, y: -82}
+        - {x: 47.5, y: -103}
+        - {x: -22.5, y: -115}
+        - {x: -58.5, y: -81}
+        - {x: -95.5, y: 4}
+        - {x: -116.5, y: 94}
+        - {x: -110.5, y: 124}
+        - {x: -82.5, y: 137}
+        - {x: -40.5, y: 114}
+        - {x: -29.5, y: 100}
+        - {x: -36.5, y: 60}
+        - {x: -28.5, y: -11}
+        - {x: -12.5, y: -66}
+        - {x: 9.5, y: -75}
+        - {x: 78.5, y: -46}
+        - {x: 107.5, y: -29}
+        - {x: 118.5, y: -30}
+        - {x: 118.5, y: -50}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0afcd6e55bf414995e1d72f5fdc854
+      internalID: -407269793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 441
+        width: 315
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: -98}
+        - {x: -34.5, y: -98}
+        - {x: -64.5, y: -89}
+        - {x: -115.5, y: -55}
+        - {x: -148.5, y: -2}
+        - {x: -156.5, y: 50}
+        - {x: -152.5, y: 98}
+        - {x: 109.5, y: 78}
+        - {x: 139.5, y: 68}
+        - {x: 136.5, y: 4}
+        - {x: 98.5, y: -50}
+        - {x: 62.5, y: -76}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e894b532fbc2843ba5002a18a9b879
+      internalID: -1476661480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 311
+        width: 115
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.5, y: -76.5}
+        - {x: -46.5, y: 36.5}
+        - {x: -43.5, y: 46.5}
+        - {x: -35.5, y: 73.5}
+        - {x: -28.5, y: 75.5}
+        - {x: -17.5, y: 64.5}
+        - {x: -9.5, y: 60.5}
+        - {x: 13.5, y: 55.5}
+        - {x: 31.5, y: 58.5}
+        - {x: 47.5, y: 61.5}
+        - {x: 37.5, y: 55.5}
+        - {x: 44.5, y: 48.5}
+        - {x: 47.5, y: 36.5}
+        - {x: 42.5, y: 26.5}
+        - {x: 52.5, y: -4.5}
+        - {x: 55.5, y: -41.5}
+        - {x: 53.5, y: -76.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00aeacf533872dd43a0cb81b63aa2137
+      internalID: -105468398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 211
+        width: 58
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -49}
+        - {x: -28, y: -49}
+        - {x: -27, y: -36}
+        - {x: -25, y: -19}
+        - {x: -23, y: 2}
+        - {x: -21, y: 24}
+        - {x: -18, y: 50}
+        - {x: 28, y: 50}
+        - {x: 27, y: 47}
+        - {x: 24, y: 45}
+        - {x: 23, y: 13}
+        - {x: 25, y: -14}
+        - {x: 28, y: -49}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f522e2fda578bd64cb55bc45dda4ff22
+      internalID: -2143450648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_6
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 211
+        width: 68
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -50}
+        - {x: -21, y: -21}
+        - {x: -22, y: 5}
+        - {x: -26, y: 29}
+        - {x: -31, y: 50}
+        - {x: 8, y: 50}
+        - {x: 12, y: 35}
+        - {x: 23, y: -8}
+        - {x: 30, y: -50}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128e0622fddbab44f994b6ca7bc6d7ee
+      internalID: 1162758886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_7
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 17
+        width: 121
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.5, y: -29.5}
+        - {x: 14.5, y: -30.5}
+        - {x: -6.5, y: -24.5}
+        - {x: -22.5, y: -14.5}
+        - {x: -35.5, y: -23.5}
+        - {x: -53.5, y: -24.5}
+        - {x: -60.5, y: -13.5}
+        - {x: -53.5, y: 8.5}
+        - {x: -40.5, y: 26.5}
+        - {x: -26.5, y: 29.5}
+        - {x: -20.5, y: 23.5}
+        - {x: -13.5, y: 28.5}
+        - {x: -0.5, y: 19.5}
+        - {x: 3.5, y: 26.5}
+        - {x: 8.5, y: 20.5}
+        - {x: 12.5, y: 25.5}
+        - {x: 17.5, y: 16.5}
+        - {x: 27.5, y: 23.5}
+        - {x: 47.5, y: 8.5}
+        - {x: 59.5, y: -8.5}
+        - {x: 56.5, y: -23.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e237ad78d034849852e14ff08446be
+      internalID: 1979172041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_8
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 65
+        width: 77
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: -65}
+        - {x: 15.5, y: -70}
+        - {x: 9.5, y: -64}
+        - {x: 3.5, y: -70}
+        - {x: -6.5, y: -61}
+        - {x: -14.5, y: -68}
+        - {x: -19.5, y: -63}
+        - {x: -29.5, y: -68}
+        - {x: -35.5, y: -65}
+        - {x: -34.5, y: -25}
+        - {x: -32.5, y: 51}
+        - {x: -32.5, y: 73}
+        - {x: 16.5, y: 73}
+        - {x: 17.5, y: 54}
+        - {x: 22.5, y: 38}
+        - {x: 33.5, y: -20}
+        - {x: 33.5, y: -67}
+        - {x: 25.5, y: -73}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d32f7bae7e3a2c4c809ee2290493c21
+      internalID: 1471143329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huggi_waggi-transformed_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 62
+        width: 119
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: -66}
+        - {x: 14.5, y: -74}
+        - {x: 7.5, y: -69}
+        - {x: 2.5, y: -75}
+        - {x: -3.5, y: -66}
+        - {x: -9.5, y: -72}
+        - {x: -16.5, y: -65}
+        - {x: -27.5, y: -72}
+        - {x: -31.5, y: -63}
+        - {x: -38.5, y: -69}
+        - {x: -45.5, y: -71}
+        - {x: -49.5, y: -60}
+        - {x: -41.5, y: -34}
+        - {x: -15.5, y: 20}
+        - {x: -0.5, y: 59}
+        - {x: 0.5, y: 75}
+        - {x: 57.5, y: 75}
+        - {x: 54.5, y: 33}
+        - {x: 47.5, y: -11}
+        - {x: 35.5, y: -48}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0c81d2814605d44ad5d85c35e9e3b4
+      internalID: 906062160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      huggi_waggi-transformed_0: -934729164
+      huggi_waggi-transformed_1: -373787681
+      huggi_waggi-transformed_2: -407269793
+      huggi_waggi-transformed_3: -1476661480
+      huggi_waggi-transformed_4: -105468398
+      huggi_waggi-transformed_5: -2143450648
+      huggi_waggi-transformed_6: 1162758886
+      huggi_waggi-transformed_7: 1979172041
+      huggi_waggi-transformed_8: 1471143329
+      huggi_waggi-transformed_9: 906062160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
