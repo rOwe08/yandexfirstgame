@@ -9,13 +9,16 @@ public class SFXManager : MonoBehaviour
     public AudioClip clickButtonFinalSound;
     public AudioClip activatingLoseWindowSound;
     public AudioClip activatingWinWindowSound;
-
+    public AudioClip incorrectLetterSound;
+    public AudioClip confettiSound;
     private void Start()
     {
         AddSound("clickLetterButtonSound", clickLetterButtonSound);  
         AddSound("clickButtonFinalSound", clickButtonFinalSound);
         AddSound("activatingLoseWindowSound", activatingLoseWindowSound);
         AddSound("activatingWinWindowSound", activatingWinWindowSound);
+        AddSound("incorrectLetterSound", incorrectLetterSound);
+        AddSound("confettiSound", confettiSound);
     }
     public void PlaySound(string key)
     {

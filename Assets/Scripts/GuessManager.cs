@@ -2,10 +2,12 @@
 using System.Linq;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GuessManager : MonoBehaviour
 {
     public GameManager gameManager;
+    public SFXManager sfxManager;
 
     public WordPlaceholderGenerator wordPlaceholderGenerator;
 
@@ -71,7 +73,7 @@ public class GuessManager : MonoBehaviour
         // Remove the chosen word from the list
         playableThemeWordMapper[guessedWordTheme].RemoveAt(wordIndex);
 
-        Debug.Log($"Выбранная тема: {guessedWordTheme}, выбранное слово: {guessedWord}");
+        //Debug.Log($"Выбранная тема: {guessedWordTheme}, выбранное слово: {guessedWord}");
 
         wordPlaceholderGenerator.Generate();
     }
@@ -113,6 +115,8 @@ public class GuessManager : MonoBehaviour
 
         if (!IsGuessed)
         {
+            sfxManager.PlaySound("incorrectLetterSound");
+
             Debug.Log("Incorrect letter!");
             huggiWaggi.ActivateNextPart();
             gameManager.countOfWrongGuesses += 1;

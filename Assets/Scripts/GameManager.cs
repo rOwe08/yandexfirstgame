@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour
         foreach (ParticleSystem particleSystem in particleSystems)
         {
             particleSystem.enableEmission = true;
+            sfxManager.PlaySound("confettiSound");
             particleSystem.Play();
         }
     }
