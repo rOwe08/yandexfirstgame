@@ -308,6 +308,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf9732433f4dc044845763962493607, type: 3}
+--- !u!114 &355848898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8008618817924360715, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377931976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7395285962071197994, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
@@ -344,17 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guessManager: {fileID: 728392013}
   uiManager: {fileID: 466244625}
-  windowFinal: {fileID: 1256610925}
-  wordPlaceholderGenerator: {fileID: 1603557755}
   sfxManager: {fileID: 668633647}
-  huggiWaggi: {fileID: 1072020926}
-  particleSystems:
-  - {fileID: 670585697}
-  - {fileID: 902880530}
-  - {fileID: 1931810478}
-  buttonGenerator: {fileID: 1603557750}
   countOfWrongGuesses: 0
-  limitOfWrongGuesses: 0
   level: 0
   hp: 0
   score: 0
@@ -407,12 +409,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4824c0077e7f1794f97a50085f195869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 409808599}
+  guessManager: {fileID: 728392013}
+  huggyWaggi: {fileID: 1072020926}
+  buttonGenerator: {fileID: 1603557750}
+  wordPlaceholderGenerator: {fileID: 1603557755}
+  particleSystems:
+  - {fileID: 670585697}
+  - {fileID: 902880530}
+  - {fileID: 1931810478}
   levelText: {fileID: 1818215630}
   hpText: {fileID: 432173573}
   scoreText: {fileID: 488322096}
   themeText: {fileID: 377931976}
-  gameManager: {fileID: 409808599}
-  guessManager: {fileID: 728392013}
+  windowFinal: {fileID: 1256610925}
+  textResultComponent: {fileID: 1452583598}
+  textWordComponent: {fileID: 355848898}
+  buttonFinal: {fileID: 1298169342}
+  yandexButton: {fileID: 1134561364}
 --- !u!4 &466244626
 Transform:
   m_ObjectHideFlags: 0
@@ -707,13 +721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 409808599}
-  sfxManager: {fileID: 668633647}
-  wordPlaceholderGenerator: {fileID: 1603557755}
-  guessedWord: 
-  guessedWordTheme: 
   huggiWaggi: {fileID: 1072020926}
-  countOfGuessedLetters: 0
-  words: []
+  wordPlaceholderGenerator: {fileID: 1603557755}
 --- !u!4 &728392014
 Transform:
   m_ObjectHideFlags: 0
@@ -743,6 +752,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a23192d6b01a47246a567fc7b4cb6582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1134561364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8047403923586056321, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1190274236
@@ -952,6 +972,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7819869484651392426, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
   m_PrefabInstance: {fileID: 1256610924}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1298169342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7132769899196861242, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1452583598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 219647279918686454, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
+  m_PrefabInstance: {fileID: 1256610924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1603557750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4076761850450010448, guid: 9533e47ec0708814ca792d7f9905f1d9, type: 3}
