@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         YandexGame.savesData.hpDataSave = hp;
         YandexGame.savesData.scoreDataSave = score;
         YandexGame.SaveProgress();
+        AddNewLeaderBoard();
     }
     public void ExampleOpenRewardAd(int id)
     {
@@ -85,6 +86,11 @@ public class GameManager : MonoBehaviour
         score = 0;
     }
 
+    public void AddNewLeaderBoard()
+    {
+        YandexGame.NewLeaderboardScores("Score", score);
+        YandexGame.NewLeaderboardScores("Level", level);
+    }
     public void OnLetterSelect(char letter)
     {
         // play the button clicked sound effect
