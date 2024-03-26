@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
         textWordComponent.text = "";
 
         wordPlaceholderGenerator.RemoveCreatedPlaceholders();
+        gameManager.SaveData();
     }
 
     public void OnRoundWin()
@@ -83,7 +84,7 @@ public class UIManager : MonoBehaviour
         buttonFinal.onClick.AddListener(() =>
         {
             gameManager.NextWordButtonClick();
-
+            gameManager.SaveData();
             DisableParticleSystem();
         });
 
@@ -92,6 +93,7 @@ public class UIManager : MonoBehaviour
         {
             gameManager.ExampleOpenRewardAd(2);
             DisableParticleSystem();
+            gameManager.SaveData();
         });
     }
 
@@ -117,12 +119,14 @@ public class UIManager : MonoBehaviour
         buttonFinal.onClick.AddListener(() =>
         {
             gameManager.NextWordButtonClick();
+            gameManager.SaveData();
         });
 
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
             gameManager.ExampleOpenRewardAd(1);
+            gameManager.SaveData();
         });
     }
 

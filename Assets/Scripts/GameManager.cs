@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        ResetGameVariables();
+        LoadData();
 
         uiManager.Initialize();
 
@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     public void StartPlay()
     {
+        SaveData();
         guessManager.ChooseWord();
-
         uiManager.StartUISession();
     }
 
@@ -46,6 +46,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadData()
+    {
+        level = YandexGame.savesData.levelDataSave;
+        hp = YandexGame.savesData.hpDataSave;
+        score = YandexGame.savesData.scoreDataSave;
+    }
+
+    public void SaveData()
+    {
+        YandexGame.savesData.levelDataSave = level;
+        YandexGame.savesData.hpDataSave = hp;
+        YandexGame.savesData.scoreDataSave = score;
+        YandexGame.SaveProgress();
+    }
     public void ExampleOpenRewardAd(int id)
     {
         YandexGame.RewVideoShow(id);
