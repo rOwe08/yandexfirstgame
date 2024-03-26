@@ -51,7 +51,7 @@ public class WordPlaceholderGenerator : MonoBehaviour
 
                 wordLetters.Add(newWordLetter);
 
-                newWordLetter.transform.localPosition = new Vector3(x, (wordLetterWidth / 2), 0f);
+                newWordLetter.transform.localPosition = new Vector3(x, 0, 0f);
 
                 newWordLetter.GetComponentInChildren<TextMeshProUGUI>().text = guessedWord[i].ToString();
                 newWordLetter.transform.GetChild(0).gameObject.SetActive(false);
