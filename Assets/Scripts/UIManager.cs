@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
             DisableParticleSystem();
         });
 
-        yandexButton.GetComponentInChildren<TextMeshProUGUI>().text = "смотреть рекламу за x2 очков";
+        yandexButton.GetComponentInChildren<TextMeshProUGUI>().text = "смотреть рекламу \n x2 очков";
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
     public void OnRoundLose(bool isAlive)
     {
         textWordComponent.text = "Твое слово: " + guessManager.GuessedWord;
-        yandexButton.GetComponentInChildren<TextMeshProUGUI>().text = "смотреть рекламу за +1 жизнь";
+        yandexButton.GetComponentInChildren<TextMeshProUGUI>().text = "смотреть рекламу \n +1 жизнь";
 
         if (isAlive)
         {
@@ -159,7 +159,7 @@ public class UIManager : MonoBehaviour
         foreach (ParticleSystem particleSystem in particleSystems)
         {
             particleSystem.enableEmission = true;
-            // sfxManager.PlaySound("confettiSound");
+            //sfxManager.PlaySound("confettiSound");
             particleSystem.Play();
         }
     }

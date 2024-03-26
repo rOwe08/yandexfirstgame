@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     {
         LoadData();
 
+        if (hp < 1)
+        {
+            ResetGameVariables();
+        }
         uiManager.Initialize();
 
         StartPlay();

@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 8081152877062508711}
   - component: {fileID: 7798205565605633187}
   - component: {fileID: 8047403923586056321}
+  - component: {fileID: 5956174841479683423}
   m_Layer: 5
   m_Name: YandexButton
   m_TagString: Untagged
@@ -274,6 +275,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5956174841479683423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123002108562163260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cef2c6d795a32247b97807c60ad83b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  rotationAngle: 10
 --- !u!1 &1837566424294075305
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -98.70001}
+  m_AnchoredPosition: {x: 0, y: -52}
   m_SizeDelta: {x: 437.8715, y: 49.3571}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7445201096317062440
@@ -674,7 +689,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.8770752, w: 0}
+  m_margin: {x: -114.465225, y: 0, z: -99.530945, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -997,11 +1012,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2157063616003593409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -192}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 535.351, y: 49.3571}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5105149420186819801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1030,7 +1045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u0430\u0448\u0435 \u0441\u043B\u043E\u0432\u043E: \u0413\u0435\u0439"
+  m_text: "\u0412\u0430\u0448\u0435 \u0441\u043B\u043E\u0432\u043E:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 232bcd5fe365645489813ba1fc5d03ff, type: 2}
   m_sharedMaterial: {fileID: 1659417264018106524, guid: 232bcd5fe365645489813ba1fc5d03ff, type: 2}
@@ -1093,7 +1108,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.8770752, w: 0}
+  m_margin: {x: -82.334625, y: 0, z: -101.53903, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
