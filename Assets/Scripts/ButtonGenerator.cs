@@ -13,6 +13,9 @@ public class ButtonGenerator : MonoBehaviour
     private float offsetXBetweenButtons;
     private float offsetYBetweenButtons;
 
+    private float referenceResolutionX = 1920;
+    private float referenceResolutionY = 1080;
+
     private float yDiffAnimation;
 
     public List<GameObject> letterButtons = new List<GameObject>();
@@ -23,12 +26,14 @@ public class ButtonGenerator : MonoBehaviour
         float screenHeight = Screen.height;
 
         float leftScreenSide = -(screenWidth / 2f);
-        float offsetY = screenHeight / 2f;
+        float offsetY = referenceResolutionY / 2f;
         float yForRow = 0;
 
         float buttonWidth = buttonPrefab.GetComponent<RectTransform>().rect.width;
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
 
+        //buttonWidth = screenHeight * referenceRatio;
+        //buttonHeight = buttonWidth;
         float totalWidthButtons = numberOfColumns * buttonWidth;
         float offsetBetweenButtons = buttonWidth / 2;
         float totalWidthWithOffset = totalWidthButtons + offsetBetweenButtons * (numberOfColumns - 1);

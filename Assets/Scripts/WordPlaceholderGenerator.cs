@@ -12,7 +12,18 @@ public class WordPlaceholderGenerator : MonoBehaviour
     public List<GameObject> wordLetters = new List<GameObject>();
 
     private float offsetXBetweenLetters;
-    
+    private float canvasWidth;
+    private float canvasHeight;
+
+    private void Start()
+    {
+        //canvasWidth = canvasRectTransform.rect.width;
+        //canvasHeight = canvasRectTransform.rect.height;
+
+        canvasWidth = 1920f;
+        canvasHeight = 1080f;
+    }
+
     public void Generate()
     {
         float screenWidth = Screen.width;
