@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
-            gameManager.WatchAdForX2();
+            gameManager.ExampleOpenRewardAd(2);
             DisableParticleSystem();
         });
     }
@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
-            gameManager.WatchAdForHP();
+            gameManager.ExampleOpenRewardAd(1);
         });
     }
 

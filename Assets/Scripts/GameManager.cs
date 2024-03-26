@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using YG;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +30,25 @@ public class GameManager : MonoBehaviour
         guessManager.ChooseWord();
 
         uiManager.StartUISession();
+    }
+
+    private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
+    private void OnDisable() => YandexGame.RewardVideoEvent -= Rewarded;
+    void Rewarded(int id)
+    {
+        if (id == 1)
+        {
+            WatchAdForHP();
+        }
+        else if (id == 2)
+        {
+            WatchAdForX2();
+        }
+    }
+
+    public void ExampleOpenRewardAd(int id)
+    {
+        YandexGame.RewVideoShow(id);
     }
 
     public void PlayAgainButtonClick()
@@ -121,7 +142,6 @@ public class GameManager : MonoBehaviour
 
     public void WatchAdForHP()
     {
-        /// TODO:
         Debug.Log("+1 HP");
 
         sfxManager.PlaySound("clickButtonFinalSound");
@@ -132,7 +152,6 @@ public class GameManager : MonoBehaviour
 
     public void WatchAdForX2()
     {
-        /// TODO:
         Debug.Log("X2 score");
 
         sfxManager.PlaySound("clickButtonFinalSound");
