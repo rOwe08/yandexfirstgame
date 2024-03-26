@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         YandexGame.SaveProgress();
         AddNewLeaderBoard();
     }
-    public void ExampleOpenRewardAd(int id)
+    public void OpenRewardAd(int id)
     {
         YandexGame.RewVideoShow(id);
     }
