@@ -71,7 +71,6 @@ public class UIManager : MonoBehaviour
         textWordComponent.text = "";
 
         wordPlaceholderGenerator.RemoveCreatedPlaceholders();
-        gameManager.SaveData();
     }
 
     public void OnRoundWin()

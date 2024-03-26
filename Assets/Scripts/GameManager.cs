@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening.Core.Easing;
+using System;
 using UnityEngine;
 using YG;
 
@@ -145,6 +146,7 @@ public class GameManager : MonoBehaviour
                 uiManager.OnRoundLose(isAlive: false);
             }
         }
+        SaveData();
     }
 
     public void NextWordButtonClick()
