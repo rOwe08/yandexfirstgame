@@ -7,12 +7,7 @@ public class ShakeButton : MonoBehaviour
     public float duration = 0.5f;
     public float rotationAngle = 10f;
 
-    void Start()
-    {
-        StartCoroutine(ShakeCoroutine());
-    }
-
-    IEnumerator ShakeCoroutine()
+    public IEnumerator ShakeCoroutine()
     {
         yield return new WaitForSeconds(1f);
 

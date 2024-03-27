@@ -182,6 +182,10 @@ public class UIManager : MonoBehaviour
 
         panel.SetActive(true);
         panel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+
+        var buttonYandex = panel.transform.Find("YandexButton").GetComponent<ShakeButton>();
+
+        buttonYandex.StartCoroutine(buttonYandex.ShakeCoroutine());
     }
 
     public void AnimatePanelDisappear(GameObject panel, System.Action callback)
