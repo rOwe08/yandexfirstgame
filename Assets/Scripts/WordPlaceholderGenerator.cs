@@ -28,7 +28,7 @@ public class WordPlaceholderGenerator : MonoBehaviour
         float totalWidthWithOffset = totalWidthWordLetter + offsetBetweenLetters * (numOfLetters - 1);
         float totalWidthForScreenOffset = screenWidth - totalWidthWithOffset;
 
-        float x = leftScreenSide + totalWidthForScreenOffset / 2 ;
+        float x = leftScreenSide + totalWidthForScreenOffset / 2 + offsetBetweenLetters;
 
         offsetXBetweenLetters = wordLetterWidth + wordLetterWidth / 2;
 
