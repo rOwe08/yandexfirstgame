@@ -19,8 +19,8 @@ public class ButtonGenerator : MonoBehaviour
 
     public void Generate()
     {
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
+        float screenWidth = 1920f;
+        float screenHeight = 1080f;
 
         float leftScreenSide = -(screenWidth / 2f);
         float offsetY = screenHeight / 2f;
@@ -47,7 +47,7 @@ public class ButtonGenerator : MonoBehaviour
 
             if (row == 0)
             {
-                yForRow += offsetYBetweenButtons * 2;
+                yForRow += offsetYBetweenButtons * 4;
             }
             else
             {

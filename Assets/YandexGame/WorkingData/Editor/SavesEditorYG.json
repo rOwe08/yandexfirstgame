@@ -1,5 +1,5 @@
 {
-  "idSave": 319,
+  "idSave": 337,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -10,7 +10,7 @@
     true,
     false
   ],
-  "levelDataSave": 7,
-  "hpDataSave": 1,
-  "scoreDataSave": 43
+  "levelDataSave": 1,
+  "hpDataSave": 3,
+  "scoreDataSave": 0
 }
