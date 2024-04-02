@@ -13,18 +13,15 @@ public class ButtonGenerator : MonoBehaviour
     private float offsetXBetweenButtons;
     private float offsetYBetweenButtons;
 
-    private float yDiffAnimation;
-
     public List<GameObject> letterButtons = new List<GameObject>();
 
     public void Generate()
     {
-        float screenWidth = 1920f;
-        float screenHeight = 1080f;
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
 
+        float bottomScreenSide = -(screenHeight / 2);
         float leftScreenSide = -(screenWidth / 2f);
-        float offsetY = screenHeight / 2f;
-        float yForRow = 0;
 
         float buttonWidth = buttonPrefab.GetComponent<RectTransform>().rect.width;
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
@@ -45,24 +42,14 @@ public class ButtonGenerator : MonoBehaviour
         {
             x = leftScreenSide + totalWidthForScreenOffset / 2 + buttonWidth / 2;
 
-            if (row == 0)
-            {
-                yForRow += offsetYBetweenButtons * 4;
-            }
-            else
-            {
-                yForRow += offsetYBetweenButtons;
-            }
-
-            yDiffAnimation = yForRow;
             for (int col = 0; col < numberOfColumns; col++)
             {
                 GameObject newButton = Instantiate(buttonPrefab, transform);
 
                 letterButtons.Add(newButton);
-                float y = row * buttonHeight - offsetY;
+                float y = row * buttonHeight;
 
-                newButton.transform.localPosition = new Vector3(x, y + yForRow, 0f);
+                newButton.transform.localPosition = new Vector3(x, bottomScreenSide + y + offsetYBetweenButtons * (row + 1), 0f);
 
                 char letter = GetRussianLetter(row, col);
 
