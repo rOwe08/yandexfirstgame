@@ -8,9 +8,12 @@ public class LetterButton : MonoBehaviour
 
     private GameManager gameManager;
 
+    private Button letterButton;
+
     void Start()
-    {   
-        GetComponent<Button>().onClick.AddListener(OnButtonClick);
+    {
+        letterButton = GetComponent<Button>();
+        letterButton.onClick.AddListener(OnButtonClick);
 
         gameManager = FindObjectOfType<GameManager>();
 
@@ -24,6 +27,8 @@ public class LetterButton : MonoBehaviour
 
     public void OnButtonClick()
     {
+        letterButton.interactable = false;
+
         // call game manager to handle the button click
         gameManager.OnLetterSelect(letter);
 

@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ButtonGenerator : MonoBehaviour
 {
@@ -78,6 +79,13 @@ public class ButtonGenerator : MonoBehaviour
         foreach(GameObject button in letterButtons)
         {
             button.SetActive(IsActive);
+
+            // Now, get the Button component and set its 'interactable' property
+            Button buttonComponent = button.GetComponent<Button>();
+            if (buttonComponent != null) // Check if the GameObject actually has a Button component
+            {
+                buttonComponent.interactable = IsActive;
+            }
         }
     }
 

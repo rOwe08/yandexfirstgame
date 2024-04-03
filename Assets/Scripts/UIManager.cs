@@ -83,6 +83,7 @@ public class UIManager : MonoBehaviour
         buttonFinal.onClick.RemoveAllListeners();
         buttonFinal.onClick.AddListener(() =>
         {
+            buttonFinal.interactable = false;
             gameManager.NextWordButtonClick();
             gameManager.SaveData();
             DisableParticleSystem();
@@ -92,6 +93,7 @@ public class UIManager : MonoBehaviour
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
+            yandexButton.interactable = false;
             gameManager.OpenRewardAd(2);
             DisableParticleSystem();
             gameManager.SaveData();
@@ -120,6 +122,7 @@ public class UIManager : MonoBehaviour
         buttonFinal.onClick.RemoveAllListeners();
         buttonFinal.onClick.AddListener(() =>
         {
+            buttonFinal.interactable = false;
             gameManager.NextWordButtonClick();
             gameManager.SaveData();
         });
@@ -127,6 +130,7 @@ public class UIManager : MonoBehaviour
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
+            yandexButton.interactable = false;
             gameManager.OpenRewardAd(1);
             gameManager.SaveData();
         });
@@ -139,12 +143,14 @@ public class UIManager : MonoBehaviour
         buttonFinal.onClick.RemoveAllListeners();
         buttonFinal.onClick.AddListener(() =>
         {
+            buttonFinal.interactable = false;
             gameManager.PlayAgainButtonClick();
         });
 
         yandexButton.onClick.RemoveAllListeners();
         yandexButton.onClick.AddListener(() =>
         {
+            yandexButton.interactable = false;
             gameManager.OpenRewardAd(1);
         });
     }
@@ -179,6 +185,9 @@ public class UIManager : MonoBehaviour
         panel.SetActive(false);
 
         panel.transform.localScale = Vector3.zero;
+
+        buttonFinal.interactable = true;
+        yandexButton.interactable = true;
 
         panel.SetActive(true);
         panel.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
