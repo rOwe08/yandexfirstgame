@@ -18,50 +18,54 @@ public class ButtonGenerator : MonoBehaviour
 
     public void Generate()
     {
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
-
-        float bottomScreenSide = -(screenHeight / 2);
-        float leftScreenSide = -(screenWidth / 2f);
+        float screenWidth = 1920f;
+        RectTransform canvasRect = GetComponent<RectTransform>();
 
         float buttonWidth = buttonPrefab.GetComponent<RectTransform>().rect.width;
         float buttonHeight = buttonPrefab.GetComponent<RectTransform>().rect.height;
 
-        //buttonWidth = screenHeight * referenceRatio;
-        //buttonHeight = buttonWidth;
         float totalWidthButtons = numberOfColumns * buttonWidth;
-        float offsetBetweenButtons = buttonWidth / 2;
-        float totalWidthWithOffset = totalWidthButtons + offsetBetweenButtons * (numberOfColumns - 1);
-        float totalWidthForScreenOffset = screenWidth - totalWidthWithOffset;
+        float totalHeightButtons = numberOfRows * buttonHeight;
 
-        float x;
+        //float startX = buttonWidth / 2 + (screenWidth - totalWidthButtons - (buttonWidth / 2) * (numberOfColumns - 1)) / 2;
 
-        offsetXBetweenButtons = buttonWidth + buttonWidth / 2;
-        offsetYBetweenButtons = buttonHeight / 4;
+        float startX = buttonWidth / 2 - screenWidth / 2 + (screenWidth - totalWidthButtons - (buttonWidth / 2) * (numberOfColumns - 1)) / 2;
+        float startY = buttonHeight / 2;
+
+        float x = startX;
+        float y = startY;
 
         for (int row = 0; row < numberOfRows; row++)
         {
-            x = leftScreenSide + totalWidthForScreenOffset / 2 + buttonWidth / 2;
-
             for (int col = 0; col < numberOfColumns; col++)
             {
                 GameObject newButton = Instantiate(buttonPrefab, transform);
 
                 letterButtons.Add(newButton);
-                float y = row * buttonHeight;
 
-                newButton.transform.localPosition = new Vector3(x, bottomScreenSide + y + offsetYBetweenButtons * (row + 1), 0f);
+                RectTransform buttonRect = newButton.GetComponent<RectTransform>();
+
+                // Set anchorMin and anchorMax to the bottom of canvas
+                buttonRect.anchorMin = new Vector2(0.5f, 0);
+                buttonRect.anchorMax = new Vector2(0.5f, 0);
+
+                // Set anchoredPosition to position relative to anchorMin and anchorMax
+                buttonRect.anchoredPosition = new Vector2(x, y);
 
                 char letter = GetRussianLetter(row, col);
-
                 newButton.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
                 newButton.GetComponent<LetterButton>().letter = letter;
 
-                x += offsetXBetweenButtons;
+                x += buttonWidth * 1.5f;
             }
+
+            x = startX;
+            y += buttonHeight * 1.5f;
         }
+
         SetActiveButtons(false);
     }
+
 
     private char GetRussianLetter(int row, int col)
     {
